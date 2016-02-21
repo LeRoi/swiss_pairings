@@ -54,9 +54,6 @@ class Match():
         status = "COMPLETE" if self.is_complete() else "PENDING"
         return "%s vs. %s [%s]" % (str(self.high_seed), str(self.low_seed), status)
 
-def make_bye(player):
-    return Round(player, None, 2, player)
-
 class Player():
     """Represents a single player in an event."""
     def __init__(self, name, id_):
@@ -177,19 +174,6 @@ def get_players():
             longest = longest if len(input_) < longest else len(input_)
     DEFAULT_PAD = longest
     return players
-
-##def match_entry(players):
-##    p1 = raw_input("p1 id: ")
-##    p2 = raw_input("p2 id: ")
-##    games = raw_input("games: ")
-##    winner = raw_input("winner id: ")
-##    least = get_lowest_matches(players)
-##    p1_ = lookup(players, p1)
-##    p2_ = lookup(players, p2)
-##    winner_ = lookup(players, winner)
-##    if len(p1.record) != least or (p2_ != None and len(p2.record) != least):
-##        return
-##    record_match(p1_, p2_, int(games), winner_)
 
 def group_players(players):
     """Returns sorted lists of players, sorted by win record.
